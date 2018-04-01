@@ -5,8 +5,6 @@ if [ "$USER" != "root" ]; then
 	exit 1
 fi
 
-updatedb
-
 workdir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 exec 1> $workdir/task4_1.out
 
@@ -28,7 +26,7 @@ fi
 
 
 echo '--- System ---'
-dist=$(lsb_release -d | awk '{print$2,$3,$4}')
+dist=$(lsb_release -d | awk '{print $2, $3, $4}')
 kernV=$(uname -r)
 installD=$(sudo ls -alct /|tail -1| awk '{print $6, $7, $8}')
 uptime=$(uptime -p | awk -F',' '{print$1}')
